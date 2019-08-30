@@ -1,0 +1,15 @@
+.DS_Store
+models/__pycache__/
+
+#git rm -r --cached  models/__pycache__/
+
+
+# **/Users/mahmoudramadan/App/odoo/dev/mobile_service_shop/models/__pycache__/
+# /__pycache__/
+# **/__pycache__/
+# **/__pycache__
+# .__pycache__
+# __pycache__.
+# models/__pycache__/*
+# **/models/__pycache__/
+# models/__pycache__/

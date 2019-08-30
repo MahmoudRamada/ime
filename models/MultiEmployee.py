@@ -2,21 +2,38 @@
 
 from odoo import models, api, fields, _
 from odoo.exceptions import Warning
+from odoo import exceptions
 
 
 class MultiEmployee(models.Model):
     _name = 'multi.employee'
 
-    multi_emplyee_id = fields.Many2one('multi.contract')
     employee_id = fields.Many2one('hr.employee', "Employee")
-    name = fields.Char("Employee name")
+    # multi_emplyee_id = fields.Many2one('multi.contract')
+    # name = fields.Char("Employee name")
     wage = fields.Integer('Wage', required=True)
-    struct_id = fields.Many2one(
-        'hr.payroll.structure', string='Salary Structure', required=True)
-    working_hours = fields.Many2one('resource.calendar', 'Working Hours')
-    active = fields.Boolean("Active Employee")
+    # struct_id = fields.Many2one(
+    #     'hr.payroll.structure', string='Salary Structure', required=True)
+    # working_hours = fields.Many2one('resource.calendar', 'Working Hours')
+    # active = fields.Boolean("Active Employee")
     Emp_id = fields.Many2one('mobile.service')
 
+    _sql_constraints = [ ('driver_id_unique', 'UNIQUE(employee_id)', 'Only one car can be assigned to the same employee!') ]
+""" 
+    @api.multi
+    @api.constrains('employee_id')
+    def _check_contract_for_same_employee(self):
+            if self.employee_id:
+                Econtract_id = self.env['hr.employee'].search(
+                    [('id', '!=', self.id),
+                     ('employee_id', '=', self.employee_id.id),
+                     ])
+                if Econtract_id:
+                    raise exceptions.ValidationError(
+                        _('Contract can be only created if in expired state.'))
+
+ """
+""" 
 class MultiContract(models.Model):
     _name = 'multi.contract'
 
@@ -69,3 +86,4 @@ class MultiContract(models.Model):
         return action
 
 
+ """

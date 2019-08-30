@@ -143,14 +143,14 @@
                                     <tree string="Complaints" editable="bottom">
                                         <field name="employee_id"/>
                                         <field name="wage"/>
-                                        <field name="struct_id"/>
-                                        <field name="working_hours"/>
+                                        <!-- <field name="struct_id"/>
+                                        <field name="working_hours"/> -->
                                     </tree>
                                     <form>
                                         <field name="employee_id"/>
                                         <field name="wage"/>
-                                        <field name="struct_id"/>
-                                        <field name="working_hours"/>
+                                        <!-- <field name="struct_id"/>
+                                        <field name="working_hours"/> -->
                                     </form>
                                 </field>
                             </page>

@@ -18,7 +18,7 @@ class MobileServiceShop(models.Model):
     Emp_id = fields.One2many('multi.employee', 'Emp_id',string='Assigned to Employee', track_visibility='onchange')
     # contact_no = fields.Char(related='person_name.mobile', string="Contact Number")
     # email_id = fields.Char(related='person_name.email', string="Email")
-
+    #_sql_constraints = [ ('driver_id_unique', 'UNIQUE(Emp_id)', 'Only one car can be assigned to the same employee!') ]
     # street = fields.Char(related='person_name.street', string="Address")
     # street2 = fields.Char(related='person_name.street2', string="Address")
     # city = fields.Char(related='person_name.city', string="Address")
